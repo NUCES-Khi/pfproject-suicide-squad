@@ -6,5 +6,5 @@ The game starts by taking the player's name as input and presenting the player w
 Once the game commences, a timer keeps track of the time taken to answer each question. Furthermore, if the time limit is exceeded, 100 points are immediately deducted. <br>
 High score is permenantly saved on a file. It also keeps track of the current win streak.
 ### Technologies Used:
->> Conditional Statements >> Loops >> Array >> Functions >>  Files >> Pointers
+>> Conditional Statements >> Loops >> Array >> Functions >>  Files >> Pointers >> Switch-Case
 ### Progress: 90% Complete!
