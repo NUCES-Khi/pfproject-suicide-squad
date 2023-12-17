@@ -1,7 +1,7 @@
 # Project Report: MathaMania
 
 ### Team Members 
-### **`<Raghib Rizwan Rabani  23K-0012> <Hafsa Rashid 23K-0064> <Arwa Feroze 23K-0022>`**
+### **`<Raghib Rizwan Rabani  23K-0012>` `<Hafsa Rashid 23K-0064>` `<Arwa Feroze 23K-0022>`**
 
 ## Proposal Idea
 MathaMania is an interactive quiz game developed in C language aimed at enhancing users' mathematical problem-solving skills. It engages users by presenting questions at varying difficulty levels (easy, moderate, hard) and allows them to select their preferred challenge level.
