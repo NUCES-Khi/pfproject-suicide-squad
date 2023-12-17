@@ -325,3 +325,24 @@ int main(){
     printf("1. Easy    2. Moderate    3. Hard:  ");
     scanf("%d",&diff); // Taking input for difficulty level
     printf("\n");
+// Selecting difficulty
+    switch (diff)
+    {
+    case 1:
+    system("cls");
+    one(easy);
+    break;
+
+    case 2:
+    system("cls");
+    two(moderate);
+    break;
+
+    case 3:
+    system("cls");
+    three(hard);
+    break;
+    
+    default:
+        break;
+    }
