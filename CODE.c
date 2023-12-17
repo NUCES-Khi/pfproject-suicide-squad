@@ -273,3 +273,55 @@ void three(FILE *hard){
 
     fclose(hard); // hard file close
 }
+
+
+int main(){
+    // Declaring and Initializing variables
+    char name[50];
+    char ans;
+    int diff;
+    char answer;
+    int i = 0;
+
+    printf("Enter your name:");
+    gets(name); // Asking name of user
+    printf("\n");
+
+    // Loop for restarting game
+    printf("Do You want to start game? 'y' for yes and 'n' for no: ");
+    scanf("%c",&ans);
+
+    // Asking user to play
+    switch (ans)
+    {
+    case 'y':
+    case 'Y':
+        system("cls");
+        break;
+
+    case 'n':
+    case 'N':
+        exit(1);
+        break;
+    }
+
+    // Instructions for playing quiz game
+    printf(GREEN "..............%s, WELCOME TO MATHAMANIA..............\n\n" RESET,name);
+    printf( "...............IMPORTANT INSTRUCTIONS:..................\n\n" );
+    printf( ">> There are 3 difficulty levels in this quiz game: easy, moderate and hard.\n");
+    printf( ">> You can choose any level as per your will.\n" );
+    printf( ">> Each right answer will be awarded 100 points.\n" );
+    printf( ">> You will be given 4 options namely A, B, C and D which you use to answer the given question. Make sure to enter capital letters.\n");
+    printf( ">> There will be no negative marking for wrong answers.\n" );
+    printf( ">> For easy level there is the time limit of 10 seconds, for moderate 20 seconds, and for hard 30 seconds. If you exceed the given time then there will be negative marking of 100 points.\n");
+    printf( ">> At the end you can see your score and on restarting you will see the highscore you achieved from the start.\n\n");
+
+    // Opening files
+    FILE *easy = fopen("easy.txt" , "r");
+    FILE *moderate = fopen("moderate.txt", "r");
+    FILE *hard = fopen("hard.txt", "r");
+
+    printf("Select Difficulty: \n");
+    printf("1. Easy    2. Moderate    3. Hard:  ");
+    scanf("%d",&diff); // Taking input for difficulty level
+    printf("\n");
