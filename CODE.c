@@ -187,3 +187,89 @@ void two(FILE *moderate){
 
     fclose(moderate); // moderate file close
 }
+void three(FILE *hard){
+
+    FILE *hs;
+    char a[100];
+    int highscore = 0;
+    int b;
+    hs = fopen("hard_highscore.txt" , "r");
+    
+    fgets(a,100,hs);
+    printf("\033[33m Highscore is:  %s\n\n \033[0m",a);
+    
+    fclose(hs); // highscore file close
+
+    // Declaring and initializing variables
+    int streak = 0;
+    time_t starttime, endtime;
+    int elapsedtime;
+    char arr[100][100];  
+    char brr[100][100];
+    char answer[100];
+    int score = 0;
+
+    for (int i = 0; i < 20; i++) {
+
+        // Reading questions and answers
+        if (fgets(arr[i], sizeof(arr[i]), hard) == NULL) {
+            break;  // End of file
+        }
+        if (fgets(brr[i], sizeof(brr[i]), hard) == NULL) {
+            break;  // End of file
+        }
+
+        // Printing the question
+        printf(" %s", arr[i]);
+
+        // Timing the user's response
+        time(&starttime);
+        printf("Enter the answer: ");
+        
+        scanf(" %c",&answer[i]); // Taking input from user
+        
+        time(&endtime);
+        elapsedtime = difftime(endtime, starttime); // Calculating current time
+
+        printf("Time taken: %d seconds\n", elapsedtime);
+
+        // Comparing the answer
+        if (elapsedtime > 30){
+            printf("\033[31m Time's up.... 100 points deducted.\n \033[0m");
+            score -= 100;
+            streak = 0;
+        } else if (answer[i] == brr[i][0]) {
+            printf(GREEN "Your answer is Correct!\n" RESET);
+            score += 100;
+            streak++;
+        } else {
+            printf(RED "Your answer is wrong.\n" RESET);
+            streak = 0;
+        }
+    } // end for
+
+    printf("\033[34m \nScore Is: %d\n \033[0m",score); // Printing total score
+    
+    // Securing highscore in a variable
+    hs = fopen("hard_highscore.txt" , "r");
+
+    fscanf(hs,"%d",&b);
+
+    fclose(hs); // highscore file close
+
+    printf("\033[33m \nWinning streak is: %d \033[0m \n\n",streak);
+    // fclose(hard); // hard file close
+
+    // Comparing highscore with score
+    hs = fopen("hard_highscore.txt" , "w");
+
+    if(b < score || hs == NULL){ 
+        b = score;
+    }
+    
+    fprintf(hs,"%d",b); //Printing highscore in file
+    
+    fclose(hs); // highscore file close
+
+    fclose(hard); // hard file close
+}
